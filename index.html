@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cyber Schools | Hacker Training Institute</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+html{scroll-behavior:smooth}
+
+body{
+color:#e5e7eb;
+background:#000;
+}
+
+/* ===== BACKGROUND (ONLINE HACKER THEME) ===== */
+.bg{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+z-index:-1;
+animation:zoom 25s infinite alternate;
+}
+@keyframes zoom{
+from{transform:scale(1)}
+to{transform:scale(1.1)}
+}
+
+/* ===== NAVBAR ===== */
+/* ================= NAVBAR ================= */
+nav{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.95),
+    rgba(5,15,25,0.85),
+    rgba(0,0,0,0.95)
+  );
+
+  backdrop-filter: blur(14px);
+  border-bottom: 2px solid rgba(0,255,204,0.25);
+  z-index: 1000;
+}
+
+/* ================= BRAND SECTION ================= */
+.nav-brand{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* glowing background behind logo */
+.nav-brand::before{
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle, #00ffcc55, transparent 65%);
+  filter: blur(12px);
+  z-index: -1;
+}
+
+/* ================= LOGO ================= */
+.nav-brand img{
+  height: 62px;
+  width: auto;
+  border-radius: 18px;
+  object-fit: contain;
+
+  background: rgba(0,255,204,0.08);
+  padding: 6px;
+
+  box-shadow:
+    0 0 15px #00ffcc88,
+    0 0 35px #00ffcc55;
+
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+/* ================= BRAND TEXT (UNCHANGED STYLE) ================= */
+.nav-brand span{
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #00ffcc;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #00ffcc88;
+  white-space: nowrap;
+}
+
+/* ================= NAV LINKS ================= */
+nav ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav li{
+  margin-left: 32px;
+}
+
+nav a{
+  position: relative;
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+/* underline glow */
+nav a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 2px;
+  background: #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
+  transition: width 0.3s ease;
+}
+
+nav a:hover{
+  color: #00ffcc;
+}
+
+nav a:hover::after{
+  width: 100%;
+}
+
+/* ================= LOGO ANIMATION ================= */
+@keyframes logoPulse{
+  0%{
+    transform: scale(1);
+    box-shadow:
+      0 0 15px #00ffcc88,
+      0 0 35px #00ffcc55;
+  }
+  50%{
+    transform: scale(1.18);
+    box-shadow:
+      0 0 25px #00ffcc,
+      0 0 60px #00ffccaa;
+  }
+  100%{
+    transform: scale(1);
+    box-shadow:
+      0 0 15px #00ffcc88,
+      0 0 35px #00ffcc55;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  nav{
+    padding: 0 25px;
+  }
+
+  .nav-brand img{
+    height: 52px;
+  }
+
+  .nav-brand span{
+    font-size: 1.25rem;
+  }
+
+  nav li{
+    margin-left: 18px;
+  }
+}
+
+/* ===== HAMBURGER ===== */
+/* ===== HAMBURGER ===== */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:#00ffcc;
+  box-shadow:0 0 8px #00ffcc;
+}
+
+/* ===== MOBILE MENU FIX ===== */
+@media(max-width:768px){
+
+  .hamburger{
+    display:flex;
+  }
+
+  nav ul{
+    position:absolute;
+    top:85px;
+    left:0;
+    width:100%;
+    background:#000;
+    flex-direction:column;
+    align-items:center;
+
+    max-height:0;
+    overflow:hidden;
+    transition:0.4s ease;
+    border-bottom:2px solid #00ffcc33;
+  }
+
+  nav li{
+    margin:18px 0;
+  }
+
+  /* 👇 MENU OPEN STATE */
+  nav.open ul{
+    max-height:500px; /* enough for all links */
+  }
+}
+
+
+/* ===== HERO ===== */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+}
+.brand-line{
+margin-top:10px;
+font-size:1.8rem;
+letter-spacing:3px;
+color:#e5e7eb;
+text-transform:uppercase;
+text-shadow:0 0 15px #00ffcc66;
+}
+
+
+.hero h1{
+font-size:3.8rem;
+color:#00ffcc;
+text-shadow:0 0 25px #00ffcc66;
+}
+
+.hero p{
+margin:15px 0;
+font-size:1.2rem;
+color:#cbd5e1;
+}
+
+.btn{
+padding:12px 32px;
+margin:10px;
+background:#00ffcc;
+color:#000;
+border:none;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+border-radius:4px;
+}
+.btn:hover{
+background:#00bfa5;
+transform:translateY(-3px);
+box-shadow:0 0 20px #00ffcc88;
+}
+
+/* ===== SECTIONS ===== */
+section{
+padding:100px 70px;
+text-align:center;
+}
+
+h2{
+font-size:2.5rem;
+margin-bottom:35px;
+color:#00ffcc;
+text-shadow:0 0 15px #00ffcc55;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:35px;
+justify-content:center;
+}
+
+/* ===== CARDS ===== */
+.card{
+width:270px;
+padding:25px;
+background:rgba(0,0,0,.65);
+border:1px solid #00ffcc33;
+border-radius:12px;
+transition:.4s;
+overflow:hidden;   /* 🔥 IMAGE OVERFLOW FIX */
+}
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 30px #00ffcc55;
+border-color:#00ffcc;
+}
+
+
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  margin-top:30px;
+}
+
+.card{
+  background:#111;
+  color:white;
+  padding:20px;
+  border-radius:12px;
+  width:250px;
+  box-shadow:0 0 20px #00ffcc55;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  box-shadow:0 0 35px #00ffcc88;
+}
+
+.card h3{
+  margin-bottom:10px;
+  font-size:1.2rem;
+  text-align:center;
+}
+
+.course-desc{
+  font-size:0.95rem;
+  color:#ddd;
+  line-height:1.4;
+  text-align:center;
+}
+
+
+/* ===== PERSON CARDS ===== */
+/* TRAINERS / MANAGEMENT IMAGES - UPPER FULL, Niche se crop, Circular */
+.person img{
+  width:200px;            /* Circle size */
+  height:200px;           /* Circle size */
+  object-fit:cover;       /* Crop to fill box */
+  object-position:top;    /* 🔥 UPPER part fully visible, niche crop */
+  border-radius:50%;      /* Circle */
+  border:3px solid #00ffcc;
+  box-shadow:0 0 20px #00ffcc88;
+  transition:0.4s;
+}
+
+.person img:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 35px #00ffccaa;
+}
+
+
+
+/* ===== FORM ===== */
+#form{
+display:none;
+position:fixed;
+top:20%;
+left:50%;
+transform:translateX(-50%);
+background:#000;
+padding:30px;
+border:2px solid #00ffcc;
+border-radius:12px;
+z-index:2000;
+box-shadow:0 0 30px #00ffcc66;
+}
+
+/* FORM STYLE - same as Option 1 */
+#form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #111;      
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 0 20px #00ffcc;
+}
+
+/* Close button - style same as Submit, bottom-right */
+#form .close {
+  background: #00ffcc;      /* same color as submit */
+  color: #111;              /* text color */
+  padding: 10px 20px;       /* same padding as submit */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  float: right;             /* bottom-right alignment */
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+/* Hover effect for Close button */
+#form .close:hover {
+  background: #00e6b3;     /* slightly brighter on hover */
+}
+
+#form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #111;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 0 20px #00ffcc;
+}
+
+#submitBtn, #closeBtn {
+  background: #00ffcc;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#submitBtn:hover, #closeBtn:hover {
+  background: #00e6b3;
+}
+
+#closeBtn {
+  float: right;
+  margin-top: 15px;
+}
+
+
+
+#form input{
+width:100%;
+padding:10px;
+margin:10px 0;
+background:#020617;
+border:1px solid #00ffcc44;
+color:#fff;
+}
+
+.close{
+cursor:pointer;
+color:#00ffcc;
+}
+
+/* ===== FOOTER ===== */
+footer{
+padding:20px;
+background:#000;
+border-top:1px solid #00ffcc33;
+}
+
+
+/* ===== LEFT TO RIGHT ORG CHART ===== */
+
+.org-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  margin-bottom:50px;
+}
+
+.org-row.center{
+  justify-content:center;
+}
+
+.card.person{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:25px;
+  border-radius:12px;
+  width:220px;       /* Bigger cards */
+  box-shadow:0 0 25px #00ffcc55;
+  transition: transform 0.3s;
+}
+
+.card.person:hover{
+  transform: scale(1.05);
+}
+
+.card.person img{
+  width:160px;       /* Bigger image */
+  height:160px;
+  border-radius:50%; /* Circular */
+  margin-bottom:15px;
+  object-fit:cover;
+  border:3px solid #00ffcc;
+}
+
+.connector-wrapper{
+  display:flex;
+  justify-content:center;
+}
+
+/* Pulse animation for lines */
+line{
+  stroke-linecap:round;
+  animation: pulseLine 2s infinite;
+}
+
+@keyframes pulseLine{
+  0%{ opacity:0.3; stroke-width:4; filter: drop-shadow(0 0 5px #00ffcc);}
+  50%{ opacity:1; stroke-width:5; filter: drop-shadow(0 0 20px #00ffcc);}
+  100%{ opacity:0.3; stroke-width:4; filter: drop-shadow(0 0 5px #00ffcc);}
+}
+
+
+/* ===== PLACEMENTS / RECRUITERS ===== */
+#placements{
+  padding:80px 70px;
+  text-align:center;
+}
+
+.placement-cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+  margin-top:30px;
+}
+
+.placement-card{
+  width:180px;
+  background:rgba(0,0,0,0.65);
+  border:1px solid #00ffcc33;
+  border-radius:12px;
+  padding:20px;
+  transition:0.3s;
+}
+
+.placement-card:hover{
+  transform:scale(1.08);
+  border-color:#00ffcc;
+  box-shadow:0 0 25px #00ffcc66;
+}
+
+.placement-card img{
+  width:100px;
+  height:100px;
+  object-fit:contain;
+  margin-bottom:12px;
+}
+
+.placement-card h3{
+  font-size:1rem;
+  color:#e5e7eb;
+  font-weight:700;
+}
+
+.placement-more{
+  margin-top:25px;
+  font-size:1.1rem;
+  color:#00ffccaa;
+}
+
+.dark-section{
+  padding:90px 70px;
+  background:rgba(0,0,0,0.65);
+  text-align:center;
+}
+
+.section-text{
+  max-width:900px;
+  margin:auto;
+  font-size:1.1rem;
+  line-height:1.8;
+  color:#cbd5e1;
+}
+
+.method-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.method-box{
+  padding:30px;
+  border:1px solid #00ffcc44;
+  border-radius:12px;
+  background:#020617;
+  text-align:center;
+  font-weight:600;
+  color:#00ffcc;
+  box-shadow:0 0 20px #00ffcc33;
+  transition:.3s;
+}
+
+.method-box:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 35px #00ffcc88;
+}
+  
+
+/* ===== Why choose us */
+/* ===== ORBIT SECTION ===== */
+.orbit-section{
+  padding:100px 70px;
+  text-align:center;
+}
+
+/* WRAPPER */
+.orbit-wrapper{
+  position:relative;
+  width:420px;
+  height:420px;
+  margin:60px auto;
+}
+
+/* CENTER */
+.center-node{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:#000;
+  border:2px solid #00ffcc;
+  color:#00ffcc;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 35px #00ffccaa;
+  text-shadow:0 0 10px #00ffcc;
+  z-index:2;
+}
+
+/* RING */
+.swing-ring{
+  position:absolute;
+  inset:0;
+  animation:swing 8s ease-in-out infinite;
+}
+
+/* ITEMS */
+.orbit-item{
+  position:absolute;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:#020617;
+  border:1px solid #00ffcc55;
+  color:#e5e7eb;
+  font-size:0.85rem;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 20px #00ffcc55;
+  animation:pulse 2.8s ease-in-out infinite;
+
+  /* CENTER REFERENCE */
+  top:50%;
+  left:50%;
+  transform-origin: center -180px; /* radius distance from center */
+}
+
+/* POSITIONS: 6 ITEMS EVENLY SPACED IN CIRCLE */
+.orbit-item {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #020617;
+  border: 1px solid #00ffcc55;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px #00ffcc55;
+  animation: pulse 2.8s ease-in-out infinite;
+}
+
+/* EVENLY PLACE ITEMS USING ANGLES */
+.orbit-wrapper .orbit-item:nth-child(1) {
+  top: calc(50% - 55px - 180px * cos(0deg));
+  left: calc(50% - 55px + 180px * sin(0deg));
+}
+.orbit-wrapper .orbit-item:nth-child(2) {
+  top: calc(50% - 55px - 180px * cos(60deg));
+  left: calc(50% - 55px + 180px * sin(60deg));
+}
+.orbit-wrapper .orbit-item:nth-child(3) {
+  top: calc(50% - 55px - 180px * cos(120deg));
+  left: calc(50% - 55px + 180px * sin(120deg));
+}
+.orbit-wrapper .orbit-item:nth-child(4) {
+  top: calc(50% - 55px - 180px * cos(180deg));
+  left: calc(50% - 55px + 180px * sin(180deg));
+}
+.orbit-wrapper .orbit-item:nth-child(5) {
+  top: calc(50% - 55px - 180px * cos(240deg));
+  left: calc(50% - 55px + 180px * sin(240deg));
+}
+.orbit-wrapper .orbit-item:nth-child(6) {
+  top: calc(50% - 55px - 180px * cos(300deg));
+  left: calc(50% - 55px + 180px * sin(300deg));
+}
+
+
+/* SWING ANIMATION */
+@keyframes swing{
+  0%{ transform:rotate(-12deg); }
+  50%{ transform:rotate(12deg); }
+  100%{ transform:rotate(-12deg); }
+}
+
+/* SIZE PULSE */
+@keyframes pulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.15); }
+}
+
+/* SLOW SWING OPTION */
+.swing-ring.slow{
+  animation:swing 12s ease-in-out infinite;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-brand">
+    <img src="cyber school logo.png" alt="Cyber Schools Logo">
+    <span>Cyber Schools</span>
+  </div>
+  <ul id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#programs">Courses</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#placements">Recruiters</a></li>
+   
+    <li><a href="#management">CEO</a></li>
+     <li><a href="#about">About</a></li>
+  
+   
+
+
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div>
+    <h1>Train Like a Hacker</h1>
+    <h3 class="brand-line">Cyber Schools</h3>
+
+    <p>Cyber Security • Ethical Hacking • Real World Skills</p>
+    <button class="btn" onclick="openForm()">Join Now</button>
+    <a href="tel:8000635652"><button class="btn">Call Now</button></a>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- COURSES -->
+
+<section id="programs" class="dark-section">
+  <h2>Our Programs</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Diploma Programs</h3>
+      <p class="course-desc">
+        Ethical Hacking, Cyber Security, Full Stack Development
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>UG Programs</h3>
+      <p class="course-desc">
+        BCA Cyber Security<br>B.Tech Cyber Security
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Professional Courses</h3>
+      <p class="course-desc">
+        MERN Stack, Java Full Stack, AI & Data Science
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="courses" class="dark-section">
+  <h2>Courses We Offer</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Cyber Security</h3>
+      <p class="course-desc">1 Year – ₹90,000 | 2 Year – ₹2,20,000<br>Learn network security, ethical hacking, and cyber defense skills to protect digital assets.</p>
+    </div>
+
+    <div class="card">
+      <h3>Java Full Stack</h3>
+      <p class="course-desc">₹65,000<br>Master both front-end and back-end Java development with real-world projects and frameworks.</p>
+    </div>
+
+    <div class="card">
+      <h3>MERN Stack</h3>
+      <p class="course-desc">₹70,000<br>Learn MongoDB, Express, React, Node.js to build full-stack modern web applications.</p>
+    </div>
+
+    <div class="card">
+      <h3>Python + Java</h3>
+      <p class="course-desc">₹55,000<br>Dual-programming track covering Python scripting, Java fundamentals, and practical projects.</p>
+    </div>
+
+    <div class="card">
+      <h3>BCA Cyber Security</h3>
+      <p class="course-desc">₹90,000 / Year<br>Undergraduate program focused on cybersecurity, networking, and IT fundamentals.</p>
+    </div>
+
+    <div class="card">
+      <h3>B.Tech Cyber Security</h3>
+      <p class="course-desc">₹1,30,000 / Year<br>Advanced program in cyber defense, cryptography, and secure software development.</p>
+    </div>
+
+    <!-- Additional IT Courses -->
+    <div class="card">
+      <h3>AI & Machine Learning</h3>
+      <p class="course-desc">₹75,000<br>Learn AI concepts, ML algorithms, and implement real-world machine learning projects.</p>
+    </div>
+
+    <div class="card">
+      <h3>Data Science</h3>
+      <p class="course-desc">₹70,000<br>Analyze data, build predictive models, and visualize insights using Python and SQL.</p>
+    </div>
+
+    <div class="card">
+      <h3>C / C++ Programming</h3>
+      <p class="course-desc">₹50,000<br>Strong foundation in C and C++ for software development, algorithms, and system programming.</p>
+    </div>
+
+    <div class="card">
+      <h3>PHP & Web Development</h3>
+      <p class="course-desc">₹60,000<br>Build dynamic websites using PHP, MySQL, HTML, CSS, and JavaScript.</p>
+    </div>
+
+    <div class="card">
+      <h3>Advanced Java Full Stack</h3>
+      <p class="course-desc">₹80,000<br>Deep dive into Java frameworks, Spring Boot, REST APIs, and enterprise-level full-stack projects.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Why us-->
+<section id="why-us" class="orbit-section dark-section">
+  <h2>Why Choose Cyber Schools</h2>
+
+  <div class="orbit-wrapper">
+    <div class="center-node">Cyber<br>Schools</div>
+
+    <div class="swing-ring">
+      <span class="orbit-item"> Experts</span>
+      <span class="orbit-item">Live Projects</span>
+      <span class="orbit-item">Practical Labs</span>
+      <span class="orbit-item">Career Support</span>
+      <span class="orbit-item">Certification</span>
+      <span class="orbit-item">Job Guidance</span>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="methodology" class="orbit-section dark-section">
+  <h2>Learning Methodology</h2>
+
+  <div class="orbit-wrapper">
+    <div class="center-node">Learning<br>Flow</div>
+
+    <div class="swing-ring slow">
+      <span class="orbit-item">Live Classes</span>
+      <span class="orbit-item">Hands-on Labs</span>
+      <span class="orbit-item">Real Projects</span>
+      <span class="orbit-item">Mentor Support</span>
+      <span class="orbit-item">Assessments</span>
+      <span class="orbit-item">Certification</span>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="career" class="dark-section">
+  <h2>Certifications & Career Support</h2>
+  <p class="section-text">
+    We provide globally recognized certifications, internship support,
+    mock interviews, and placement guidance to help students build
+    a successful IT career.
+  </p>
+</section>
+
+
+<!---   Placement-->
+
+<!-- PLACEMENTS / RECRUITERS -->
+<section id="placements" class="dark-section">
+  <h2>Where Our Students Are Placed</h2>
+
+  <div class="placement-cards">
+
+    <!-- Infosys (via svgcdn link) -->
+    <div class="placement-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRca7uwPXE5HNZfZMI-9XP5-QBM4pbSkaM33A&s" alt="Infosys Logo">
+      <h3>Infosys</h3>
+    </div>
+
+    <!-- Wipro (dark logo from svgcdn) -->
+    <div class="placement-card">
+      <img src="https://images.seeklogo.com/logo-png/36/1/wipro-new-logo-png_seeklogo-360291.png" alt="Wipro Logo">
+      <h3>Wipro</h3>
+    </div>
+
+    <!-- AWS (official free CDN link) -->
+    <div class="placement-card">
+      <img src="https://logo.svgcdn.com/logos/aws.svg" alt="AWS Logo">
+      <h3>Amazon Web Services</h3>
+    </div>
+
+    <!-- Capgemini (via svgcdn generic) -->
+    <div class="placement-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGXJoQ3y345kupoHwM_8q-LJjEY5266kv78A&s" alt="Capgemini Logo">
+      <h3>Capgemini</h3>
+    </div>
+
+    <!-- Cognizant (via svgcdn generic) -->
+    <div class="placement-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgNfA890vM68nH7QrtMogXOMwEMWb_kCH7wg&s" alt="Cognizant Logo">
+      <h3>Cognizant</h3>
+    </div>
+
+    <!-- TCS (via img.logokit) -->
+    <div class="placement-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTd57i8yVS3b9Oe6c6Xco3vSXs8RM2qJkgvQ&s" alt="TCS Logo">
+      <h3>TCS</h3>
+    </div>
+
+    <!-- Airtel Payments Bank (uses Wikimedia) -->
+    <div class="placement-card">
+      <img src="https://brandlogos.net/wp-content/uploads/2022/05/airtel_payments_bank-logo_brandlogos.net_hd6xj.png" alt="Airtel Payments Bank Logo">
+      <h3>Airtel Payments Bank</h3>
+    </div>
+
+    <!-- DotSquares Technologies (hosted on official site) -->
+    <div class="placement-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ9hgFoVEUhQyRsKAojNEr3TzDvI9WXGeFEQ&s" alt="DotSquares Logo">
+      <h3>DotSquares Technologies</h3>
+    </div>
+
+    <!-- CarDekho (via 1000logos classic link) -->
+    <div class="placement-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS8zn45eRU5SROoX5Vo5Ut8lCA8el72Qz9pg&s" alt="CarDekho Logo">
+      <h3>CarDekho</h3>
+    </div>
+
+    <!-- Indian Army Emblem (via Wikimedia) -->
+    <div class="placement-card">
+      <img src="https://clipart-library.com/images/pc7rbMyXi.jpg" alt="Indian Army Logo">
+      <h3>Indian Army</h3>
+    </div>
+
+  </div>
+
+  <p class="placement-more">…and many more top recruiters!</p>
+</section>
+
+
+
+
+
+</section>
+
+<!-- ABOUT US - MANAGEMENT / LEADERSHIP -->
+<section id="management" class="dark-section">
+  <h2>Our CEO</h2>
+
+  <!-- LEVEL 1: FOUNDER -->
+  <div class="org-row center">
+    <div class="card person">
+      <img src="rajveer.jpeg" alt="Pankaj Sir">
+      <h3>Rajveer </h3>
+      <p><b>Founder</b><br>Driving Cyber Education Forward</p>
+    </div>
+  </div>
+
+  
+  
+</section>
+
+
+<section id="about" class="dark-section">
+  <h2>About Cyber Schools</h2>
+  <p class="section-text">
+    Cyber Schools is India’s leading cyber security & IT training institute.
+    We focus on practical learning, real-world hacking scenarios, and
+    industry-ready skills to build successful IT professionals.
+  </p>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact" class="dark-section">
+<h2>Contact Us</h2>
+<p>📞 8000635652</p>
+</section>
+
+<footer>
+© Cyber Schools
+</footer>
+
+<!-- FORM -->
+<div id="form">
+  <h3>Join Cyber Schools</h3>
+
+  <input id="name" placeholder="Name">
+  <input id="phone" placeholder="Mobile">
+  <input id="course" placeholder="Interested Course">
+
+  <button class="btn" id="submitBtn" onclick="submitForm()">Submit</button>
+  <span class="close" id="closeBtn" onclick="closeForm()">Close</span>
+
+  <p id="formMessage" style="margin-top:15px; font-weight:600; display:none;"></p>
+</div>
+
+
+  
+
+
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init({
+    publicKey: "ZVJ5oEzNmilbl6C0V"
+  });
+})();
+
+// OPEN FORM
+function openForm(){
+  document.getElementById("form").style.display="block";
+  document.getElementById("submitBtn").style.display="inline-block"; // reset button
+  document.getElementById("closeBtn").style.display="inline-block";
+  document.getElementById("formMessage").style.display="none";
+}
+
+// CLOSE FORM
+function closeForm(){
+  document.getElementById("form").style.display="none";
+}
+
+// SUBMIT FORM
+function submitForm(){
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const course = document.getElementById("course").value.trim();
+  const msg = document.getElementById("formMessage");
+  const submitBtn = document.getElementById("submitBtn");
+
+  msg.style.display = "block";
+  msg.style.color = "#ff4d4d";
+
+  if(!name || !phone || !course){
+    msg.innerText = "⚠️ Please fill all the fields properly.";
+    return;
+  }
+
+  emailjs.send("service_fesh2ir", "template_kktw1ll", {
+    user_name: name,
+    user_phone: phone,
+    user_course: course
+  })
+  .then(() => {
+    // ✅ Hide submit button only
+    submitBtn.style.display = "none";
+
+    msg.style.color = "#00ffcc";
+    msg.innerText = "✅ Thank you! Our team will contact you shortly.";
+
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("course").value = "";
+  })
+  .catch(() => {
+    msg.style.color = "#ff4d4d";
+    msg.innerText = "❌ Something went wrong. Please try again.";
+  });
+}
+
+
+
+
+function toggleMenu(){
+  document.getElementById("main-nav")
+    .classList.toggle("open");
+}
+</script>
+
+
+
+
+
+</body>
+</html>
