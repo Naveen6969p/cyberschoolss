@@ -7,6 +7,12 @@
 <title>Cyber Schools | Hacker Training Institute</title>
 
 <style>
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 html{scroll-behavior:smooth}
 
@@ -736,8 +742,7 @@ line{
 .swing-ring.slow{
   animation:swing 12s ease-in-out infinite;
 }
-
-  /* ================= MOBILE OVERFLOW FIXES ================= */
+/* ================= MOBILE OVERFLOW FIXES ================= */
 @media (max-width: 768px){
 
   /* ✅ SECTION PADDING FIX */
@@ -846,10 +851,49 @@ img, svg{
   }
 }
 
+
+
 /* GLOBAL LAST RESORT */
 *{
   max-width:100vw;
 }
+
+/* ===== MOBILE ORBIT ITEMS FIX (RIGHT SIDE CUT FIXED) ===== */
+@media (max-width: 768px) {
+  .orbit-wrapper {
+    width: 320px !important;       /* thoda aur wide */
+    height: 320px !important;
+    margin: 40px auto;
+    overflow: visible !important;   /* ensure circle visible */
+  }
+
+  .center-node {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Orbit Items Mobile Fix */
+  .orbit-item {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 0.65rem !important;
+    transform-origin: center -135px !important; /* slightly bigger radius for proper fit */
+    top: 50% !important;
+    left: 50% !important;
+  }
+
+  /* Evenly position orbit items using rotation (mobile) */
+  .swing-ring .orbit-item:nth-child(1) { transform: rotate(0deg) translateY(-135px) rotate(0deg) !important; }
+  .swing-ring .orbit-item:nth-child(2) { transform: rotate(60deg) translateY(-135px) rotate(-60deg) !important; }
+  .swing-ring .orbit-item:nth-child(3) { transform: rotate(120deg) translateY(-135px) rotate(-120deg) !important; }
+  .swing-ring .orbit-item:nth-child(4) { transform: rotate(180deg) translateY(-135px) rotate(-180deg) !important; }
+  .swing-ring .orbit-item:nth-child(5) { transform: rotate(240deg) translateY(-135px) rotate(-240deg) !important; }
+  .swing-ring .orbit-item:nth-child(6) { transform: rotate(300deg) translateY(-135px) rotate(-300deg) !important; }
+}
+
+
+
 
 </style>
 </head>
@@ -1259,5 +1303,3 @@ function toggleMenu(){
 
 </body>
 </html>
-
-
