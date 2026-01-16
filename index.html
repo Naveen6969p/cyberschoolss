@@ -737,6 +737,49 @@ line{
   animation:swing 12s ease-in-out infinite;
 }
 
+  /* ================= MOBILE OVERFLOW FIXES ================= */
+@media (max-width: 768px){
+
+  /* ✅ SECTION PADDING FIX */
+  section,
+  .dark-section,
+  .orbit-section,
+  #placements{
+    padding: 70px 20px;
+  }
+
+  /* ✅ ORBIT SIZE FIX */
+  .orbit-wrapper{
+    width: 300px;
+    height: 300px;
+  }
+
+  .orbit-item{
+    width: 80px;
+    height: 80px;
+    font-size: 0.7rem;
+  }
+
+  /* ✅ ORG CHART FIX */
+  .org-row{
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  /* ✅ NAV GLOW FIX */
+  .nav-brand::before{
+    width: 60px;
+    height: 60px;
+    left: -6px;
+  }
+}
+
+/* ✅ GLOBAL SAFETY */
+img, svg{
+  max-width: 100%;
+  height: auto;
+}
+
 
 </style>
 </head>
@@ -1146,3 +1189,4 @@ function toggleMenu(){
 
 </body>
 </html>
+
