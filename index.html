@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta charset="UTF-8">
 <title>Cyber Schools | Hacker Training Institute</title>
 
@@ -32,10 +34,11 @@ to{transform:scale(1.1)}
 }
 
 /* ===== NAVBAR ===== */
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR BASE ================= */
 nav{
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 85px;
   display: flex;
@@ -55,7 +58,7 @@ nav{
   z-index: 1000;
 }
 
-/* ================= BRAND SECTION ================= */
+/* ================= BRAND ================= */
 .nav-brand{
   display: flex;
   align-items: center;
@@ -63,7 +66,6 @@ nav{
   position: relative;
 }
 
-/* glowing background behind logo */
 .nav-brand::before{
   content: "";
   position: absolute;
@@ -80,21 +82,29 @@ nav{
 /* ================= LOGO ================= */
 .nav-brand img{
   height: 62px;
-  width: auto;
   border-radius: 18px;
-  object-fit: contain;
-
   background: rgba(0,255,204,0.08);
   padding: 6px;
-
   box-shadow:
     0 0 15px #00ffcc88,
     0 0 35px #00ffcc55;
-
   animation: logoPulse 2s ease-in-out infinite;
 }
 
-/* ================= BRAND TEXT (UNCHANGED STYLE) ================= */
+@keyframes logoPulse{
+  0%,100%{
+    box-shadow:
+      0 0 15px #00ffcc88,
+      0 0 35px #00ffcc55;
+  }
+  50%{
+    box-shadow:
+      0 0 30px #00ffcc,
+      0 0 65px #00ffccaa;
+  }
+}
+
+/* ================= BRAND TEXT ================= */
 .nav-brand span{
   font-size: 1.45rem;
   font-weight: 700;
@@ -104,7 +114,7 @@ nav{
   white-space: nowrap;
 }
 
-/* ================= NAV LINKS ================= */
+/* ================= NAV LINKS (DESKTOP) ================= */
 nav ul{
   list-style: none;
   display: flex;
@@ -121,10 +131,8 @@ nav a{
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: 0.3s ease;
 }
 
-/* underline glow */
 nav a::after{
   content: "";
   position: absolute;
@@ -145,92 +153,65 @@ nav a:hover::after{
   width: 100%;
 }
 
-/* ================= LOGO ANIMATION ================= */
-@keyframes logoPulse{
-  0%{
-    transform: scale(1);
-    box-shadow:
-      0 0 15px #00ffcc88,
-      0 0 35px #00ffcc55;
-  }
-  50%{
-    transform: scale(1.18);
-    box-shadow:
-      0 0 25px #00ffcc,
-      0 0 60px #00ffccaa;
-  }
-  100%{
-    transform: scale(1);
-    box-shadow:
-      0 0 15px #00ffcc88,
-      0 0 35px #00ffcc55;
-  }
+/* ================= HAMBURGER ================= */
+.hamburger{
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
 }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:768px){
+.hamburger span{
+  width: 28px;
+  height: 3px;
+  background: #00ffcc;
+  box-shadow: 0 0 8px #00ffcc;
+}
+
+/* ================= MOBILE FIX (REAL FIX) ================= */
+@media screen and (max-width: 768px){
+
   nav{
     padding: 0 25px;
   }
 
-  .nav-brand img{
-    height: 52px;
-  }
-
-  .nav-brand span{
-    font-size: 1.25rem;
+  /* hide desktop menu */
+  nav ul{
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    border-bottom: 2px solid rgba(0,255,204,0.25);
   }
 
   nav li{
-    margin-left: 18px;
+    margin: 18px 0;
+  }
+
+  /* show hamburger */
+  .hamburger{
+    display: flex;
+  }
+
+  /* toggle open */
+  nav.open ul{
+    display: flex;
   }
 }
 
-/* ===== HAMBURGER ===== */
-/* ===== HAMBURGER ===== */
-.hamburger{
-  display:none;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-}
-
-.hamburger span{
-  width:28px;
-  height:3px;
-  background:#00ffcc;
-  box-shadow:0 0 8px #00ffcc;
-}
-
-/* ===== MOBILE MENU FIX ===== */
-@media(max-width:768px){
-
+/* ================= HARD DESKTOP OVERRIDE ================= */
+@media screen and (min-width: 769px){
   .hamburger{
-    display:flex;
+    display: none !important;
   }
 
   nav ul{
-    position:absolute;
-    top:85px;
-    left:0;
-    width:100%;
-    background:#000;
-    flex-direction:column;
-    align-items:center;
-
-    max-height:0;
-    overflow:hidden;
-    transition:0.4s ease;
-    border-bottom:2px solid #00ffcc33;
-  }
-
-  nav li{
-    margin:18px 0;
-  }
-
-  /* 👇 MENU OPEN STATE */
-  nav.open ul{
-    max-height:500px; /* enough for all links */
+    display: flex !important;
+    position: static !important;
   }
 }
 
@@ -756,6 +737,7 @@ line{
   animation:swing 12s ease-in-out infinite;
 }
 
+
 </style>
 </head>
 
@@ -1153,10 +1135,10 @@ function submitForm(){
 
 
 function toggleMenu(){
-  document.getElementById("main-nav")
-    .classList.toggle("open");
+  document.getElementById("main-nav").classList.toggle("open");
 }
 </script>
+
 
 
 
